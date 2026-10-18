@@ -157,7 +157,7 @@ flowchart TD
 <div align="center">
 
 <img
-  src="assets/readme/dual-path-workflow.svg"
+  src="download.svg"
   alt="SafeTransit-AI Repair and Optimize workflows converging on verification"
   width="100%"
 />
