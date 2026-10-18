@@ -304,6 +304,76 @@ Optimize Mode explores alternative implementations of valid source code. The ori
 
 ---
 
+---
+
+## 🧠 Model & Fine-Tuning Strategy
+
+SafeTransit-AI explores how code-specialized large language models can support structured code repair and optimization while keeping verification outside the language model's control.
+
+### Model Overview
+
+| Component | Configuration |
+|---|---|
+| Base Model | Qwen2.5-Coder-7B-Instruct |
+| Model Family | Qwen2.5-Coder |
+| Fine-Tuning Approach | QLoRA |
+| Quantization | 4-bit |
+| LoRA Rank | 8 |
+| Trainable Parameters | Approximately 5.05 million |
+| Training Examples | 3 manually constructed examples |
+| Optimizer Steps | 2 total |
+| Training Environment | Google Colab |
+| Current Inference Integration | Ollama with the base model |
+
+### 🔬 Experimental Fine-Tuning Pipeline
+
+```mermaid
+flowchart TD
+    A["Qwen2.5-Coder-7B-Instruct"] --> B["4-bit Quantization"]
+    B --> C["QLoRA Adapter Configuration"]
+    C --> D["Small-Scale Training Experiment"]
+    D --> E["Adapter Checkpoint Saved"]
+    E --> F["Base vs. Adapter Evaluation"]
+    F --> G["Both: 3/3 on Small Evaluation Set"]
+    G --> H["Further Evaluation Required"]
+
+    style A fill:#164e63,stroke:#22d3ee,color:#ecfeff
+    style D fill:#713f12,stroke:#fbbf24,color:#fff7ed
+    style G fill:#164e63,stroke:#22d3ee,color:#ecfeff
+    style H fill:#7f1d1d,stroke:#f87171,color:#fff1f2
+```
+
+### Fine-Tuning Methodology
+
+**1. Quantization**
+
+The base model was loaded using 4-bit quantization to reduce memory requirements during experimentation.
+
+**2. Parameter-Efficient Fine-Tuning**
+
+QLoRA was used to explore adapter-based training instead of updating the full model's parameters. The LoRA rank was set to 8, with approximately 5.05 million trainable parameters reported for the experiment.
+
+**3. Training Feasibility Test**
+
+A small dataset of three manually constructed examples was used to verify the training pipeline. The experiment completed two optimizer steps, and an adapter checkpoint was saved.
+
+**4. Evaluation**
+
+The base model and the adapter-based model both achieved 3 out of 3 on the small evaluation set. This result demonstrates feasibility only; it does not establish a measurable improvement from fine-tuning or demonstrate generalization to unseen code.
+
+### ⚠️ Current Research Status
+
+- **Base-model integration:** Qwen2.5-Coder-7B-Instruct is integrated through Ollama.
+- **QLoRA experiment:** A small-scale training run completed and produced an adapter checkpoint.
+- **Performance improvement:** Not established by the current evaluation.
+- **Ollama adapter integration:** The trained adapter has not yet been converted and validated for Ollama inference.
+- **Production readiness:** The experimental adapter is not yet validated for production use.
+
+### Research Direction
+
+The next stage is to expand the training and evaluation datasets, compare the base model with the adapter on unseen repair tasks, measure verification pass rates, and validate the adapter in the intended inference environment.
+
+The objective is not simply to generate modified code, but to investigate whether parameter-efficient adaptation can improve code transformation quality while preserving a verification-first workflow.
 
 
 
