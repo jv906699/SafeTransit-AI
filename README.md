@@ -137,5 +137,17 @@ flowchart TD
 > The diagram is a conceptual view of the modules and intended workflow. Before publishing it as the definitive implementation diagram, we'll confirm the exact call order and benchmark reporting path against the current source files.
 
 
+### 🔎 Architecture Glossary
+
+| Component | Role in SafeTransit-AI |
+|---|---|
+| <abbr title="Abstract Syntax Tree: a tree representation of source-code structure">AST</abbr> | Represents source code structurally so it can be parsed and inspected. |
+| <abbr title="Static analysis examines code without relying solely on executing the program">Static Analysis</abbr> | Identifies potential issues through automated source-code checks. |
+| <abbr title="Large Language Model">LLM</abbr> | Proposes candidate code transformations using the local Ollama model. |
+| <abbr title="The module that coordinates parsing, repair attempts, verification and results">Orchestrator</abbr> | Controls the pipeline and tracks repair attempts. |
+| <abbr title="Automated checks applied to a candidate before it is reported as verified">Verification</abbr> | Evaluates the candidate against the checks currently implemented. |
+| <abbr title="A failed verification result used to guide another repair attempt">Diagnostic Feedback</abbr> | Supplies error information for subsequent attempts when permitted. |
+
+
 
 
