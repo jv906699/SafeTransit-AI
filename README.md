@@ -422,6 +422,61 @@ The current verification pipeline provides evidence from the checks that actuall
 
 > **Generate with AI. Evaluate with tools. Report only what the available evidence supports.**
 
+---
+
+## 📈 Research Findings, Limitations & Future Work
+
+### What We Have Established
+
+- **A working application prototype:** Streamlit provides an interface for code repair and optimization workflows.
+- **Structural code analysis:** Tree-sitter supports source-code parsing and structural inspection.
+- **Verification-driven transformations:** Candidate changes are evaluated using the checks implemented in the project.
+- **Local model integration:** Qwen2.5-Coder-7B-Instruct runs through Ollama in the current inference workflow.
+- **Experimental fine-tuning:** A small QLoRA training run completed, providing an initial feasibility test.
+- **Automated quality checks:** The project test suite and Ruff checks have been used during development.
+
+### Current Limitations
+
+| Area | Current Limitation |
+|---|---|
+| Fine-tuning | The training experiment is too small to establish generalization or improved model performance. |
+| Semantic correctness | Passing automated checks does not prove that a transformation preserves program behavior. |
+| Optimization | Runtime or memory improvements must be measured; they cannot be inferred from code appearance alone. |
+| Verification coverage | Static analysis and compiler checks cannot detect every possible defect. |
+| Language support | Current project workflows focus on Python and C. |
+| Production readiness | The prototype has not been established as a production-grade, security-critical code modernization system. |
+
+### Future Research Roadmap
+
+**Phase 1 — Stronger Evaluation**
+- Expand the repair and optimization evaluation datasets.
+- Include unseen programs and more diverse failure cases.
+- Compare the base model with the fine-tuned adapter using consistent evaluation conditions.
+
+**Phase 2 — Deeper Verification**
+- Investigate regression tests and differential testing.
+- Explore property-based testing and stronger behavioral-equivalence checks.
+- Improve verification coverage for edge cases and security-sensitive transformations.
+
+**Phase 3 — Measurable Optimization**
+- Benchmark execution time and memory usage before and after transformations.
+- Repeat experiments and report measurement conditions.
+- Reject optimizations that do not demonstrate a meaningful benefit.
+
+**Phase 4 — Model and Pipeline Improvements**
+- Investigate whether larger, better-curated datasets improve repair quality.
+- Evaluate adapter integration in the intended inference environment.
+- Track success rates, verification failures, and repair attempts across a reproducible benchmark suite.
+
+### Research Objective
+
+The long-term goal of SafeTransit-AI is to explore safer AI-assisted code modernization by combining language-model capabilities with structural code analysis and evidence-based verification.
+
+The guiding principle remains simple:
+
+> **A generated change is a candidate—not proof of correctness.**
+
+
 
 
 
