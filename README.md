@@ -218,6 +218,7 @@ SafeTransit-AI provides a Streamlit interface for exploring code repair, optimiz
 <div align="center">
 
 <img src="assets/readme/app-overview.png" alt="SafeTransit-AI application interface" width="100%"/>
+<img src="assets/readme/Screenshot 2026-10-18 223425.png" alt="SafeTransit-AI application interface — lower section" width="100%"/>
 
 <sub>SafeTransit-AI — application interface</sub>
 
