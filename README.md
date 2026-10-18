@@ -373,7 +373,60 @@ The base model and the adapter-based model both achieved 3 out of 3 on the small
 
 The next stage is to expand the training and evaluation datasets, compare the base model with the adapter on unseen repair tasks, measure verification pass rates, and validate the adapter in the intended inference environment.
 
-The objective is not simply to generate modified code, but to investigate whether parameter-efficient adaptation can improve code transformation quality while preserving a verification-first workflow.
+The objective is not simply to generate modified code, but to investigate whether parameter-efficient adaptation can improve code transformation quality while preserving a verification-first workflow.---
+
+## 🔬 AI Techniques & Verification
+
+SafeTransit-AI combines language-model-assisted code transformation with structural parsing, static analysis, and verification. The model proposes changes; the surrounding pipeline evaluates whether those changes satisfy the checks implemented by the system.
+
+### Core Techniques
+
+| Technique | Purpose |
+|---|---|
+| **Abstract Syntax Tree (AST) Analysis** | Uses Tree-sitter to parse source code into structural representations for analysis. |
+| **Diagnostic-Driven Repair** | Uses detected errors and diagnostics to guide repair attempts. |
+| **LLM-Assisted Transformation** | Generates candidate code changes for repair or optimization. |
+| **Static Analysis** | Applies available analysis tools to identify potential code issues. |
+| **Compiler-Based Validation** | Uses compiler-related checks in the C workflow. |
+| **Candidate Verification** | Checks generated candidates before reporting them as verified. |
+| **Attempt Tracking** | Maintains repair-attempt information to support result inspection. |
+| **Benchmarking** | Supports experimental comparisons of code transformation outcomes. |
+
+### 🛡️ Verification-First Workflow
+
+```mermaid id="safetransit-verification"
+flowchart TD
+    A["Source Code"] --> B["Parse and Analyze"]
+    B --> C{"Original Code Passes Required Checks?"}
+    C -- No --> D["Report Original Verification Failure"]
+    C -- Yes --> E["LLM Generates Candidate"]
+    E --> F["Run Candidate Verification"]
+    F --> G{"Candidate Passes Required Checks?"}
+    G -- Yes --> H["Accept Candidate for Reporting"]
+    G -- No --> I["Reject Candidate or Continue Repair"]
+    I --> E
+    H --> J["Report Result and Diagnostics"]
+    D --> J
+
+    style A fill:#164e63,stroke:#22d3ee,color:#ecfeff
+    style E fill:#713f12,stroke:#fbbf24,color:#fff7ed
+    style H fill:#14532d,stroke:#4ade80,color:#f0fdf4
+    style D fill:#7f1d1d,stroke:#f87171,color:#fff1f2
+```
+
+### Why Verification Matters
+
+Language models can produce code that looks plausible but contains syntax errors, type errors, security concerns, or unintended behavioral changes. SafeTransit-AI therefore places automated checks around the transformation process instead of treating generated code as automatically correct.
+
+The current verification pipeline provides evidence from the checks that actually run. Passing those checks does **not** prove formal semantic equivalence, eliminate every security vulnerability, or guarantee that optimized code runs faster.
+
+### Design Principle
+
+> **Generate with AI. Evaluate with tools. Report only what the available evidence supports.**
+
+
+
+
 
 
 
