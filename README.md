@@ -207,6 +207,24 @@ SafeTransit-AI provides two operation modes for exploring AI-assisted code trans
 
 > **Important:** Passing the available checks does not guarantee semantic equivalence, complete memory safety, or improved runtime performance. Optimization claims require appropriate benchmarks, and verification claims are limited to the checks actually performed.
 
+---
+
+<a id="application-showcase"></a>
+
+## 🖥️ Application Showcase
+
+SafeTransit-AI provides a Streamlit interface for exploring code repair, optimization, and verification outcomes.
+
+<div align="center">
+
+<img src="assets/readme/app-overview.png" alt="SafeTransit-AI application interface" width="100%"/>
+
+<sub>SafeTransit-AI — application interface</sub>
+
+</div>
+
+---
+
 
 
 
