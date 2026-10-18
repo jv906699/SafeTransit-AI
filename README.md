@@ -236,7 +236,7 @@ SafeTransit-AI provides a Streamlit interface for exploring code repair, optimiz
 
 The workflow below illustrates how Repair and Optimize paths lead to verification and reporting.
 
-![SafeTransit-AI repair and optimization workflow](assets/readme/dual-path-workflow.svg)
+![SafeTransit-AI repair and optimization workflow](download.svg)
 
 <sub>Two transformation workflows, one principle: evaluate generated code before reporting it as verified.</sub>
 
