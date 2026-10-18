@@ -9,7 +9,14 @@
 
 <a href="https://git.io/typing-svg">
   <img
-    src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=19&duration=2800&pause=800&color=22D3EE&center=true&vCenter=true&width=800&lines=Analyze+Legacy+Code;Repair+Defects+with+Local+LLMs;Optimize+Existing+Code;Verify+Before+You+Trust"
+    src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=19&duration=2800&pause=800&color=22D3EE&center=true&vCenter=true&width=800&lines=
+<a href="https://git.io/typing-svg">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=17&duration=3000&pause=900&color=22D3EE&center=true&vCenter=true&width=850&lines=Exploring+AI-Assisted+Code+Modernization;Reducing+Legacy+Code+Maintenance+Through+Automation;Combining+AST+Analysis+with+LLM-Based+Repair;Checking+Generated+Changes+with+Static+Verification;A+Research+Prototype+for+Safer+Code+Transformation"
+    alt="SafeTransit-AI research focus"
+/>
+</a>
+
     alt="Animated SafeTransit-AI project tagline"
   />
 </a>
