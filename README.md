@@ -149,5 +149,55 @@ flowchart TD
 | <abbr title="A failed verification result used to guide another repair attempt">Diagnostic Feedback</abbr> | Supplies error information for subsequent attempts when permitted. |
 
 
+---
+
+<a id="features"></a>
+
+## 🔄 Repair vs. Optimize
+
+SafeTransit-AI provides two operation modes for exploring AI-assisted code transformation. Both evaluate generated candidates, but they begin with different objectives.
+
+<table>
+<thead>
+<tr>
+<th align="left">Dimension</th>
+<th align="left">🛠️ Repair Mode</th>
+<th align="left">⚡ Optimize Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary goal</strong></td>
+<td>Address detected defects and verification failures.</td>
+<td>Explore improvements to code that already passes the required initial checks.</td>
+</tr>
+<tr>
+<td><strong>Starting point</strong></td>
+<td>Source code requiring correction.</td>
+<td>Source code selected for improvement.</td>
+</tr>
+<tr>
+<td><strong>Model involvement</strong></td>
+<td>Generate a candidate repair using available diagnostics.</td>
+<td>Generate a candidate optimization.</td>
+</tr>
+<tr>
+<td><strong>Verification</strong></td>
+<td>Evaluate the candidate using the implemented checks.</td>
+<td>Evaluate the optimized candidate using the implemented checks.</td>
+</tr>
+<tr>
+<td><strong>Possible outcome</strong></td>
+<td>Verified candidate, or a reported failure with remaining diagnostics.</td>
+<td>Verified candidate, or a reported failure with remaining diagnostics.</td>
+</tr>
+</tbody>
+</table>
+
+> **Important:** Passing the available checks does not guarantee semantic equivalence, complete memory safety, or improved runtime performance. Optimization claims require appropriate benchmarks, and verification claims are limited to the checks actually performed.
+
+
+
+
 
 
