@@ -20,9 +20,5 @@
 />
 </a>
 
-    alt="Animated SafeTransit-AI project tagline"
-  />
-</a>
-
 </div>
 
