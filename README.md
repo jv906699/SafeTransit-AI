@@ -151,17 +151,6 @@ flowchart TD
 
 ---
 
-<a id="features"></a>
-
-
-<div align="center">
-
-<img
-  src="download.svg"
-  alt="SafeTransit-AI Repair and Optimize workflows converging on verification"
-  width="100%"
-/>
-
 </div>
 
 ## 🔄 Repair vs. Optimize
