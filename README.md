@@ -217,10 +217,6 @@ SafeTransit-AI provides a Streamlit interface for exploring code repair, optimiz
 
 ---
 
-<a id="workflow-showcase"></a>
-
----
-
 ## 🔬 Inside the Pipeline
 
 The workflow below illustrates how Repair and Optimize paths lead to verification and reporting.
