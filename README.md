@@ -22,3 +22,54 @@
 
 </div>
 
+---
+
+<div align="center">
+
+## 🔬 Research Focus
+
+**Can AI-assisted code modernization be made more reliable through structural analysis and independent verification?**
+
+*An experimental pipeline exploring the intersection of static analysis, compiler tooling, and local large language models.*
+
+</div>
+
+## 🧩 The Problem
+
+Legacy code modernization is not simply a matter of generating cleaner code. Automated changes can introduce syntax errors, alter program behavior, weaken safety checks, or create new defects.
+
+Large language models can propose useful transformations, but their output must be evaluated independently rather than trusted by default.
+
+SafeTransit-AI explores a verification-oriented approach to this challenge.
+
+## 🎯 Project Objective
+
+Build a research prototype that combines:
+
+- **AST-based analysis** to inspect source code structure.
+- **Static analysis and diagnostics** to identify potential defects.
+- **LLM-assisted repair** to generate candidate code changes.
+- **Automated verification** to evaluate candidates before accepting their results.
+- **Attempt tracking** to distinguish successful verification from failed repair attempts.
+
+## ⚙️ Research Approach
+
+| Stage | Engineering approach | Purpose |
+|:--|:--|:--|
+| 01 · Analyze | Tree-sitter and AST-based parsing | Inspect source structure and detect syntax issues |
+| 02 · Diagnose | Static analysis and verification tools | Collect actionable diagnostics |
+| 03 · Transform | Local LLM through Ollama | Generate a candidate repair or optimization |
+| 04 · Verify | Automated checks | Evaluate the candidate against available checks |
+| 05 · Report | Pipeline orchestration and result history | Expose the outcome and remaining issues |
+
+## 📌 Current Scope
+
+SafeTransit-AI is a **local research prototype** supporting Python and C workflows. It uses a Streamlit interface, Tree-sitter-based parsing, a local Ollama model, and automated verification tools.
+
+The current implementation is an exploration of safer AI-assisted transformation—not a proof of semantic equivalence, complete memory safety, or production readiness.
+
+**Current engineering checkpoint:** 86 automated tests passed; Ruff checks passed. Cloud deployment remains pending.
+
+---
+
+
