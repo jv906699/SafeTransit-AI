@@ -226,6 +226,99 @@ SafeTransit-AI provides a Streamlit interface for exploring code repair, optimiz
 
 ---
 
+---
+
+<a id="workflow-showcase"></a>
+
+## 🔬 Inside the Pipeline
+
+<div align="center">
+
+<img src="assets/readme/dual-path-workflow.svg" alt="SafeTransit-AI repair and optimization workflow" width="100%"/>
+
+<sub>Two transformation workflows, one principle: evaluate generated code before reporting it as verified.</sub>
+
+</div>
+
+---
+
+<a id="repair-showcase"></a>
+
+## 🛠️ 01 — Repair Mode
+
+Repair Mode explores diagnostic-guided correction of source code. The pipeline evaluates the original input, generates repair candidates when appropriate, and reports the outcome of the available verification checks.
+
+<div align="center">
+
+<img src="assets/repair-python.png" alt="SafeTransit-AI Python repair result" width="100%"/>
+
+<sub>Python · Syntax repair and verification outcome</sub>
+
+<br/>
+
+<img src="assets/repair-c.png" alt="SafeTransit-AI C repair result" width="100%"/>
+
+<sub>C · Syntax repair and verification outcome</sub>
+
+</div>
+
+<details>
+<summary>📋 View repair attempt history</summary>
+
+<div align="center">
+
+<img src="assets/Python_Repair_History.png" alt="Python repair attempt history and diagnostics" width="100%"/>
+
+<sub>Python · Attempt history and reported diagnostics</sub>
+
+<img src="assets/C_Repair_History.png" alt="C repair attempt history and diagnostics" width="100%"/>
+
+<sub>C · Attempt history and reported diagnostics</sub>
+
+</div>
+
+</details>
+
+---
+
+<a id="optimization-showcase"></a>
+
+## ⚡ 02 — Optimize Mode
+
+Optimize Mode explores alternative implementations of valid source code. The original input is checked before optimization, and the candidate is evaluated using the verification checks available in the current implementation.
+
+<div align="center">
+
+<img src="assets/optimize-python.png" alt="SafeTransit-AI Python optimization result" width="100%"/>
+
+<sub>Python · Optimization candidate and verification outcome</sub>
+
+<br/>
+
+<img src="assets/optimize-c.png" alt="SafeTransit-AI C optimization result" width="100%"/>
+
+<sub>C · Optimization candidate and verification outcome</sub>
+
+</div>
+
+---
+
+<a id="benchmark-showcase"></a>
+
+## 📊 Benchmark Results
+
+<div align="center">
+
+<img src="assets/benchmark-results.png" alt="SafeTransit-AI benchmark results" width="100%"/>
+
+<sub>Benchmark output from the project's current implementation.</sub>
+
+</div>
+
+> **Verification note:** A passing result means the candidate passed the checks that were actually run. It does not, by itself, establish semantic equivalence, complete safety, or improved performance. Performance claims require suitable comparative benchmarks.
+
+---
+
 
 
 
