@@ -72,4 +72,70 @@ The current implementation is an exploration of safer AI-assisted transformation
 
 ---
 
+---
+
+<a id="architecture"></a>
+
+## 🏗️ System Architecture
+
+SafeTransit-AI separates the user interface, source-code analysis, model interaction, pipeline orchestration, and verification into distinct modules.
+
+```mermaid
+flowchart TD
+    U["👤 Developer"]
+    UI["Streamlit UI<br/>src/app.py"]
+    CFG["Configuration<br/>src/config.py"]
+
+    U --> UI
+    CFG -.-> UI
+
+    UI --> MODE{"Operation Mode"}
+
+    MODE -->|"Repair"| R["Repair Workflow"]
+    MODE -->|"Optimize"| O["Optimization Workflow"]
+
+    R --> ORCH["Pipeline Orchestrator<br/>src/orchestrator.py"]
+    O --> ORCH
+
+    ORCH --> PARSE["Tree-sitter Parser<br/>src/parser.py"]
+    PARSE --> DIAG["Syntax & Analysis Diagnostics"]
+
+    DIAG --> AGENT["LLM Repair Agent<br/>src/ollama_agent.py"]
+    AGENT --> CLIENT["Ollama Client<br/>src/ollama_client.py"]
+    CLIENT --> MODEL["Local LLM<br/>Ollama"]
+
+    MODEL --> CANDIDATE["Candidate Code"]
+    CANDIDATE --> VERIFY["Verification Runner<br/>src/verifier.py"]
+
+    VERIFY --> RESULT{"Verification Result"}
+
+    RESULT -->|"Pass"| ACCEPT["Verified Candidate"]
+    RESULT -->|"Fail, attempts remain"| FEEDBACK["Diagnostics & Repair Context"]
+    FEEDBACK --> ORCH
+    RESULT -->|"Fail, limit reached"| FAILED["Unverified Result<br/>Report Remaining Issues"]
+
+    ACCEPT --> REPORT["Results & Attempt History"]
+    FAILED --> REPORT
+    REPORT --> UI
+
+    BENCH["Benchmark Runner<br/>src/benchmark.py"]
+    BENCH -.-> REPORT
+
+    classDef interface fill:#102a43,stroke:#22d3ee,color:#ffffff
+    classDef analysis fill:#172554,stroke:#60a5fa,color:#ffffff
+    classDef inference fill:#164e63,stroke:#22d3ee,color:#ffffff
+    classDef verification fill:#14532d,stroke:#4ade80,color:#ffffff
+    classDef failure fill:#451a1a,stroke:#f87171,color:#ffffff
+
+    class UI,U interface
+    class PARSE,DIAG,ORCH analysis
+    class AGENT,CLIENT,MODEL inference
+    class VERIFY,ACCEPT verification
+    class FAILED failure
+```
+
+> The diagram is a conceptual view of the modules and intended workflow. Before publishing it as the definitive implementation diagram, we'll confirm the exact call order and benchmark reporting path against the current source files.
+
+
+
 
