@@ -153,6 +153,17 @@ flowchart TD
 
 <a id="features"></a>
 
+
+<div align="center">
+
+<img
+  src="assets/readme/dual-path-workflow.svg"
+  alt="SafeTransit-AI Repair and Optimize workflows converging on verification"
+  width="100%"
+/>
+
+</div>
+
 ## 🔄 Repair vs. Optimize
 
 SafeTransit-AI provides two operation modes for exploring AI-assisted code transformation. Both evaluate generated candidates, but they begin with different objectives.
