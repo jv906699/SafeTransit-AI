@@ -1,0 +1,62 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 0 960 380" role="img" aria-labelledby="title desc">
+  <title id="title">SafeTransit-AI Repair and Optimize workflows</title>
+  <desc id="desc">Two code transformation paths converge on a verification gate. Failed checks lead to diagnostic feedback.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071522"></stop>
+      <stop offset="1" stop-color="#0b2030"></stop>
+    </linearGradient>
+    <style>
+      .label{font:600 16px 'Segoe UI',sans-serif;fill:#e2e8f0}
+      .small{font:13px 'Segoe UI',sans-serif;fill:#94a3b8}
+      .repair{fill:#251b16;stroke:#fb923c}
+      .optimize{fill:#102632;stroke:#22d3ee}
+      .verify{fill:#142a25;stroke:#4ade80}
+      .path{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:9 9;animation:flow 1.6s linear infinite}
+      .orange{stroke:#fb923c}
+      .cyan{stroke:#22d3ee}
+      .green{stroke:#4ade80}
+      @keyframes flow{to{stroke-dashoffset:-36}}
+      @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+      .glow{animation:pulse 2s ease-in-out infinite}
+    </style>
+  </defs>
+
+  <rect width="960" height="380" rx="18" fill="url(#bg)"></rect>
+  <path d="M0 70H960 M0 310H960" stroke="#164e63" stroke-opacity=".35"></path>
+  <text x="32" y="36" class="small">SAFETRANSIT-AI / TRANSFORMATION PIPELINE</text>
+
+  <rect x="32" y="132" width="155" height="82" rx="12" fill="#102338" stroke="#64748b"></rect>
+  <text x="109" y="164" class="label" text-anchor="middle">Source Code</text>
+  <text x="109" y="188" class="small" text-anchor="middle">Analyze input</text>
+
+  <path d="M187 173H230V112H265 M230 173V244H265" class="path cyan"></path>
+
+  <rect x="265" y="78" width="185" height="68" rx="12" class="repair"></rect>
+  <text x="357" y="106" class="label" text-anchor="middle">01 / REPAIR</text>
+  <text x="357" y="127" class="small" text-anchor="middle">Diagnostics → candidate fix</text>
+
+  <rect x="265" y="210" width="185" height="68" rx="12" class="optimize"></rect>
+  <text x="357" y="238" class="label" text-anchor="middle">02 / OPTIMIZE</text>
+  <text x="357" y="259" class="small" text-anchor="middle">Goal → candidate change</text>
+
+  <path d="M450 112H495V173H535 M450 244H495V173" class="path orange"></path>
+  <path d="M450 244H495V173" class="path cyan"></path>
+
+  <rect x="535" y="132" width="190" height="82" rx="12" class="verify glow"></rect>
+  <text x="630" y="163" class="label" text-anchor="middle">Verification Gate</text>
+  <text x="630" y="187" class="small" text-anchor="middle">Run available checks</text>
+
+  <path d="M725 173H755V112H780 M755 173V244H780" class="path green"></path>
+  <rect x="780" y="82" width="148" height="60" rx="10" fill="#123524" stroke="#4ade80"></rect>
+  <text x="854" y="107" class="label" text-anchor="middle">Checks pass</text>
+  <text x="854" y="126" class="small" text-anchor="middle">Report result</text>
+
+  <rect x="780" y="214" width="148" height="60" rx="10" fill="#351d24" stroke="#fb7185"></rect>
+  <text x="854" y="239" class="label" text-anchor="middle">Checks fail</text>
+  <text x="854" y="258" class="small" text-anchor="middle">Diagnostics / retry</text>
+
+  <text x="32" y="344" class="small">Repair and Optimize have different goals; both require independent checks.</text>
+  <text x="32" y="363" class="small">Passing checks is not proof of semantic equivalence or complete safety.</text>
+</svg>
